@@ -7,7 +7,7 @@
 
 int main()
 {
-	const int n = 1024 * 1024 * 1024;
+	const int n = 1024 * 1024 * 128;
 	std::cout << "下注" << n << "次" << std::endl;
 
 	std::random_device rd;
@@ -68,29 +68,41 @@ int main()
 	//}
 
 	int sum = 0;
-	int sum2 = 0;
-	int sum3 = 0;
+	int sum70 = 0, sum71 = 0, sum72 = 0, sum73 = 0, sum74 = 0, sum20 = 0, sum30 = 0, sum40 = 0, sum50 = 0, sum60 = 0;
 	//std::cout << "间隔72的6连庄" << std::endl;
 	for (int i = 0; i < over6Index.size() - 1; ++i)
 	{
 		if (over6Index[i] % 72 == 0)
-			sum3++;
-
-		int distance = over6Index[i + 1] - over6Index[i];
-		if (distance == 72)
 		{
 			sum++;
-			//std::cout << over6Index[i] << "  :" << over6Index[i + 1] << std::endl;
-			if (over6Index[i] % 72 == 0)
+			int distance = over6Index[i + 1] - over6Index[i];
+			switch (distance)
 			{
-				sum2++;
-				//std::cout << over6Index[i] << "  :" << over6Index[i + 1] << std::endl;
+			case 20:sum20++; break;
+			case 30:sum30++; break;
+			case 40:sum40++; break;
+			case 50:sum50++; break;
+			case 60:sum60++; break;
+			case 70:sum70++; break;
+			case 71:sum71++; break;
+			case 72:sum72++; break;
+			case 73:sum73++; break;
+			case 74:sum74++; break;
+			default: break;
 			}
 		}
 	}
-	std::cout << "间隔72的6连庄，共:" << sum << std::endl;
-	std::cout << "开头6连庄，连续次数:" << sum2 << std::endl;
-	std::cout << "开头6连庄:" << sum3 << std::endl;
+	std::cout << "开头6连庄:" << sum << std::endl;
+	std::cout << "开头6连庄，后20:" << sum20 << std::endl;
+	std::cout << "开头6连庄，后30:" << sum30 << std::endl;
+	std::cout << "开头6连庄，后40:" << sum40 << std::endl;
+	std::cout << "开头6连庄，后50:" << sum50 << std::endl;
+	std::cout << "开头6连庄，后60:" << sum60 << std::endl;
+	std::cout << "开头6连庄，后70:" << sum70 << std::endl;
+	std::cout << "开头6连庄，后71:" << sum71 << std::endl;
+	std::cout << "开头6连庄，后72:" << sum72 << std::endl;
+	std::cout << "开头6连庄，后73:" << sum73 << std::endl;
+	std::cout << "开头6连庄，后74:" << sum74 << std::endl;
 
 	std::cin >> sum;
 	return 0;
